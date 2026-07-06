@@ -13,7 +13,7 @@ const USERS_POOL = [
 const MOCK_DATA = [
   { id: 2718, sectionId: 2, text: 'Hello, what is the delivery time?', status: 'open', time: '4:20 am', date: '', elapsed: '16h', participants: [] },
   { id: 2717, sectionId: 2, text: 'Hi, do you have this item in stock?', status: 'closed', time: '1:33 am', date: '', elapsed: '', participants: [] },
-  { id: 2716, sectionId: 2, text: 'Does this come in the colour blue?', status: 'closed', time: '11:30 pm', date: '10 Oct', elapsed: '', participants: [3] },
+  { id: 2716, sectionId: 2, text: 'Does this come in the colour blue?', status: 'closed', time: '11:30 pm', date: '06 Oct', elapsed: '', participants: [3] },
   { id: 2715, sectionId: 2, text: "My delivery hasn't arrived, what can I do?", status: 'open', time: '10:34 pm', date: '10 Oct', elapsed: '22h', participants: [] }
 ]
 
@@ -24,7 +24,7 @@ const App = () => {
     { id: 3, title: 'Community QA' },
     { id: 4, title: 'FAQ' }
   ])
-  
+
   const [messages, setMessages] = useLocalStorage('messages', MOCK_DATA)
   const [activeId, setActiveId] = useState(2)
   const [inputText, setInputText] = useState('')
@@ -58,10 +58,10 @@ const App = () => {
       sectionId: activeId,
       text: inputText,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      date: '10 Oct',
+      date: '',
       elapsed: '1m',
       participants: [],
-      status: 'open' 
+      status: 'open'
     }
 
     setMessages([newMessage, ...messages])
@@ -93,22 +93,22 @@ const App = () => {
     }}>
       <div className={`overlay ${isSidebarOpen ? 'show' : ''}`} />
 
-      <Sidebar 
-        sections={sectionsWithCounts} 
-        activeId={activeId} 
+      <Sidebar
+        sections={sectionsWithCounts}
+        activeId={activeId}
         isOpen={isSidebarOpen}
         onSelect={(id) => {
           setActiveId(id)
           setIsSidebarOpen(false)
-        }} 
-        onAdd={handleAddSection} 
+        }}
+        onAdd={handleAddSection}
       />
-      
+
       <main className="main-viewport">
         <header className="main-header">
           <div className="header-top">
-            <button 
-              className="burger-btn" 
+            <button
+              className="burger-btn"
               onClick={(e) => {
                 e.stopPropagation()
                 setIsSidebarOpen(!isSidebarOpen)
@@ -120,7 +120,7 @@ const App = () => {
             </button>
             <h1>Questions Messenger</h1>
           </div>
-          
+
           <div className="filter-dropdown-container" onClick={e => e.stopPropagation()}>
             <div className="filter-trigger" onClick={() => setIsFilterOpen(!isFilterOpen)}>
               {filterLabels[statusFilter]} <span className="arrow">▾</span>
