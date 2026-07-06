@@ -1,0 +1,13 @@
+$dark-bg: #002029;
+$active-blue: #0081a2;
+$accent-cyan: #00d2ff;
+$light-gray: #d5e9f4;
+$white: #ffffff;
+$font-color: #e0f0f2;
+$border-color: #e1e8ed;
+$closed-green: #00c853;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
