@@ -132,15 +132,15 @@ body {
             gap: 2px;
 
             span:first-child {
-                color: $white;
+                color: $font-color;
                 font-weight: 800;
-                font-size: 12px;
+                font-size: 18px;
                 letter-spacing: 0.5px;
             }
 
             .history {
                 color: #1a4d57;
-                font-size: 13px;
+                font-size: 16px;
                 cursor: pointer;
                 font-weight: 400;
                 text-transform: lowercase;
