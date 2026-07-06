@@ -37,7 +37,6 @@ export const ChatArea = ({ messages, usersPool, onToggleUser, onToggleStatus }) 
                             </div>
 
                             <div className="plus-container" onClick={e => e.stopPropagation()}>
-                                {/* Кнопка-трансформер: либо +, либо число */}
                                 <button
                                     className={`action-btn ${msg.participants?.length > 0 ? 'has-count' : 'is-plus'}`}
                                     onClick={() => setActiveMenu(activeMenu === msg.id ? null : msg.id)}
